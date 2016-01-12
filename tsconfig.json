@@ -1,0 +1,45 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "isolatedModules": false,
+        "jsx": "react",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "preserveConstEnums": true,
+        "suppressImplicitAnyIndexErrors": true
+    },
+    "filesGlob": [
+        "**/*.ts",
+        "src/**/*.tsx",
+        "!node_modules/**"
+    ],
+    "compileOnSave": false,
+    "buildOnSave": false,
+    "files": [
+        "src/app.ts",
+        "src/modules/admin/index.ts",
+        "src/modules/application.ts",
+        "src/modules/stats/index.ts",
+        "src/modules/stats/test/test.spec.ts",
+        "src/modules/stats/test/test.ts",
+        "typings/assertion-error/assertion-error.d.ts",
+        "typings/body-parser/body-parser.d.ts",
+        "typings/chai/chai.d.ts",
+        "typings/express/express.d.ts",
+        "typings/lodash/lodash.d.ts",
+        "typings/mime/mime.d.ts",
+        "typings/mocha/mocha.d.ts",
+        "typings/node/node.d.ts",
+        "typings/serve-static/serve-static.d.ts",
+        "typings/tsd.d.ts"
+    ],
+    "atom": {
+        "rewriteTsconfig": true
+    }
+}
