@@ -4,18 +4,11 @@ import * as bodyParser from 'body-parser';
 
 function getApplication(): express.Express {
 
-    let app = express();
+    let app: express.Express = express();
 
     app.use(bodyParser.json());
 
-    // app.use((req:any, res, next) => {
-    //     req.transaction = req.url + '--' + new Date().getTime();
-    //     next();
-    // });
-    //
-    // app.get('/health-check', function(req, res){
-    //     res.json(200, { status: 'OK'});
-    // });
+    app.listen(8083);
 
     return app;
 }

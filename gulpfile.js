@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var ts = require('gulp-typescript');
-// var gutil = require('gutil');
+var gutil = require('gutil');
 var mocha = require('gulp-mocha');
 
 var paths = {
@@ -24,7 +24,7 @@ gulp.task('scripts', function () {
 
     return tsResult.js.pipe(gulp.dest('.tmp'))
 //.pipe(mocha({ reporter: 'dot' }))
-    // .on('error', gutil.log)
+    .on('error', gutil.log)
     ;
 
 });

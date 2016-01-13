@@ -24,6 +24,7 @@
     "files": [
         "src/app.ts",
         "src/modules/admin/index.ts",
+        "src/modules/application.spec.ts",
         "src/modules/application.ts",
         "src/modules/stats/index.ts",
         "src/modules/stats/test/test.spec.ts",
