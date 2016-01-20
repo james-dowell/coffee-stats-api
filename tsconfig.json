@@ -29,6 +29,7 @@
         "src/modules/stats/index.ts",
         "src/modules/stats/test/test.spec.ts",
         "src/modules/stats/test/test.ts",
+        "src/service-tests/stats.ts",
         "typings/assertion-error/assertion-error.d.ts",
         "typings/body-parser/body-parser.d.ts",
         "typings/chai/chai.d.ts",

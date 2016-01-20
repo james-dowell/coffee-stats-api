@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var ts = require('gulp-typescript');
 var gutil = require('gutil');
 var mocha = require('gulp-mocha');
+var server = require('gulp-develop-server');
+
 
 var paths = {
     scripts: ['src/**/*.ts', 'typings/tsd.d.ts']
@@ -29,6 +31,21 @@ gulp.task('scripts', function () {
 
 });
 
+gulp.task('server:start', ['scripts'], function() {
+
+    // var mode = (args.env && args.env == 'test') ? 'test' : 'dev'
+
+    server.listen({
+        path: './.tmp/app.js'
+    });
+});
+
+gulp.task( 'server:restart', ['scripts'], function() {
+    server.restart(function () {
+        console.log(' -- API SUCCESSFULLY RESTARTED -- ');
+    });
+});
+
 gulp.task('test', function () {
     process.chdir('.tmp'); // Tests need to be ran from within the dist directory so require() works
 
@@ -36,12 +53,19 @@ gulp.task('test', function () {
         .pipe(mocha({ reporter: 'dot' }));
 });
 
+gulp.task('test:service', function () {
+    process.chdir('.tmp'); // Tests need to be ran from within the dist directory so require() works
+
+    return gulp.src('service-tests/**/*.js')
+        .pipe(mocha({ reporter: 'dot' }));
+});
+
 gulp.task('test:auto', ['test'], function () {
     gulp.watch(['.tmp/modules/**/*.js'], ['test']);
 });
 
-gulp.task('scripts:auto', function() {
-    gulp.watch(paths.scripts, ['scripts']);
+gulp.task('watch', ['server:start'], function() {
+    gulp.watch(['src/**/*.ts'], ['server:restart']);
 });
 
 gulp.task('default', ['scripts']);

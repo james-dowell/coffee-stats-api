@@ -16,10 +16,15 @@ export default class StatsModule {
     constructor(
         private application: Application
     ) {
-        
+
         const router:express.Router = Router();
 
-        router.get('/hey', () => { console.log('Request recieved') })
+        router.get('/stats',
+            (req: express.Request, res: express.Response, next: Function) => {
+                console.log('hello');
+                res.send({});
+            }
+        );
 
         application.app.use(router);
 
