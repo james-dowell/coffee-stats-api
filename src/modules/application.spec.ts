@@ -13,4 +13,8 @@ describe('Application', () => {
         expect(app.app).to.exist;
     });
 
+    it('should hold a connection to the database', () => {
+        expect(app.db).to.exist;
+    });
+
 });

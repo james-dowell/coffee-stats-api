@@ -1,3 +1,5 @@
+"use strict"
+
 import {Inject} from 'di-ts';
 import * as express from 'express';
 import {Router} from 'express';

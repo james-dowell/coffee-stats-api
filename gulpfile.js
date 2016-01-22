@@ -53,7 +53,7 @@ gulp.task('test', function () {
         .pipe(mocha({ reporter: 'dot' }));
 });
 
-gulp.task('test:service', function () {
+gulp.task('service', function () {
     process.chdir('.tmp'); // Tests need to be ran from within the dist directory so require() works
 
     return gulp.src('service-tests/**/*.js')

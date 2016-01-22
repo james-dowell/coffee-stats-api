@@ -1,4 +1,4 @@
-var supertest = require('supertest');
+import * as supertest from 'supertest';
 
 const request = supertest('http://localhost:8083');
 
