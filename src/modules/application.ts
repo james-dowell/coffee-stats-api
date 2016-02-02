@@ -1,30 +1,11 @@
+'use strict';
 
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
+// import * as Q from 'q';
 import * as mongodb from 'mongodb';
-import * as Q from 'q';
 
-const DATABASE_USER = 'uvdata';
-const DATABASE_PASSWORD = '6FRrRtzD';
-const DATABASE_HOST = 'dharma.mongohq.com';
-const DATABASE_PORT = '10097';
-const DATABASE_NAME = 'coffeestats_test';
-
-const DB_CONNECTION = `mongodb://${DATABASE_USER}:${DATABASE_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
-
-const MongoClient = mongodb.MongoClient;
-
-function getDBConnection(): Q.Promise<mongodb.Db> {
-
-    let defer: Q.Deferred<any> = Q.defer();
-
-    MongoClient.connect(DB_CONNECTION, (err, db: mongodb.Db) => {
-        (err) ? defer.reject(err) : defer.resolve(db);
-    });
-
-    return defer.promise;
-
-}
+import DBConnectionPromise from './provider/database.provider';
 
 function getApplication(): express.Express {
 
@@ -40,15 +21,18 @@ function getApplication(): express.Express {
 
 export class Application {
 
-    public app: express.Application = getApplication();
+    public app: express.Application
     public db: mongodb.Db;
 
     constructor() {
-        getDBConnection().then((db) => {
-            this.db = db;
-        }).catch((err) => {
-            console.log('Could not connect to the DB', err);
-        });
+        this.init();
+    }
+
+    private async init() {
+        this.app = getApplication();
+        this.db = await DBConnectionPromise();
+
+        console.log('Initialised', this.db);
     }
 
 

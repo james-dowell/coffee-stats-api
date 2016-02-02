@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "target": "es6",
         "module": "commonjs",
         "moduleResolution": "node",
         "isolatedModules": false,
@@ -28,6 +28,7 @@
         "src/modules/admin/provider/stats.provider.ts",
         "src/modules/application.spec.ts",
         "src/modules/application.ts",
+        "src/modules/provider/database.provider.ts",
         "src/modules/stats/index.ts",
         "src/modules/stats/test/test.spec.ts",
         "src/modules/stats/test/test.ts",

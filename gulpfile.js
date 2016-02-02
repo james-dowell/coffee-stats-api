@@ -11,7 +11,7 @@ var paths = {
 
 var tsProject = ts.createProject({
     typescript: require('typescript'),
-    target: "es5",
+    target: "es6",
     module: require('typescript').ModuleKind.CommonJS,
     emitDecoratorMetadata: true,
     experimentalDecorators: true,
