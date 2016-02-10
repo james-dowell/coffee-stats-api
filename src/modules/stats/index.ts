@@ -1,10 +1,10 @@
 "use strict"
 
-import {Inject} from 'di-ts';
+import Deps = require('ts-dependency-injection');
 import * as express from 'express';
 import {Router} from 'express';
 
-import Application from '../application';
+import Application from '../../application';
 
 const DATABASE_USER = 'uvdata';
 const DATABASE_PASSWORD = '6FRrRtzD';
@@ -12,7 +12,9 @@ const DATABASE_HOST = 'dharma.mongohq.com';
 const DATABASE_PORT = '10097';
 const DATABASE_NAME = 'coffeestats_test';
 
-@Inject
+'use strict';
+
+@Deps.Inject(Application)
 export default class StatsModule {
 
     constructor(

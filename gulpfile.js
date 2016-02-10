@@ -36,7 +36,8 @@ gulp.task('server:start', ['scripts'], function() {
     // var mode = (args.env && args.env == 'test') ? 'test' : 'dev'
 
     server.listen({
-        path: './.tmp/app.js'
+        path: './.tmp/app.js',
+        execArgv: [ '--harmony' ]
     });
 });
 

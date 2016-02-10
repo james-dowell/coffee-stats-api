@@ -1,12 +1,12 @@
-import {Inject} from 'di-ts';
 import * as express from 'express';
 import {Router} from 'express';
 
 import Application from '../application';
 
+'use strict';
+
 const router:express.Router = Router();
 
-@Inject
 export default class AdminModule {
 
     constructor(

@@ -1,6 +1,8 @@
 import TestClass from './test';
 import * as chai from 'chai';
 
+'use strict';
+
 const expect = chai.expect;
 
 describe('test', () => {

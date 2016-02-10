@@ -20,11 +20,10 @@
   "dependencies": {
     "body-parser": "^1.14.2",
     "chai": "^3.4.1",
-    "di": "2.0.0-pre-14",
-    "di-ts": "https://github.com/EddyLane/di-ts/tarball/master",
     "express": "^4.13.3",
     "lodash": "^3.10.1",
     "mongodb": "^2.1.4",
-    "q": "^1.4.1"
+    "q": "^1.4.1",
+    "ts-dependency-injection": "^1.1.5"
   }
 }

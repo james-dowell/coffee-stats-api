@@ -2,6 +2,8 @@
 
 import * as mongodb from 'mongodb';
 
+'use strict';
+
 const DATABASE_USER = 'uvdata';
 const DATABASE_PASSWORD = '6FRrRtzD';
 const DATABASE_HOST = 'dharma.mongohq.com';

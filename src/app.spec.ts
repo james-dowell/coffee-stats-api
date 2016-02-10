@@ -1,6 +1,8 @@
 import Application from './application';
 import * as chai from 'chai';
 
+'use strict';
+
 const expect = chai.expect;
 
 describe('Application', () => {

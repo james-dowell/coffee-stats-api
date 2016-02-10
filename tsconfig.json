@@ -21,13 +21,15 @@
     ],
     "compileOnSave": false,
     "buildOnSave": false,
+    "exclude": [
+        "node_modules"
+    ],
     "files": [
+        "src/app.spec.ts",
         "src/app.ts",
         "src/cs-typings/tsd.d.ts",
         "src/modules/admin/index.ts",
         "src/modules/admin/provider/stats.provider.ts",
-        "src/modules/application.spec.ts",
-        "src/modules/application.ts",
         "src/modules/provider/database.provider.ts",
         "src/modules/stats/index.ts",
         "src/modules/stats/test/test.spec.ts",
