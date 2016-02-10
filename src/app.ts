@@ -1,42 +1,9 @@
-'use strict';
+import * as di_ts from 'di-ts';
 
-import * as express from 'express';
-import * as bodyParser from 'body-parser';
-import * as mongodb from 'mongodb';
+import index from './modules/stats/index';
+import admin from './modules/admin/index';
 
-'use strict';
+const injector = new di_ts.Injector();
 
-import DBConnectionPromise from './modules/provider/database.provider';
-
-function getApplication(): express.Express {
-
-    let app: express.Express = express();
-
-    app.use(bodyParser.json());
-
-    app.listen(8083);
-
-    return app;
-
-}
-
-export class Application {
-
-    public app: express.Application
-    public db: mongodb.Db;
-
-    constructor() {
-        this.init();
-    }
-
-    private async init() {
-        this.app = getApplication();
-        this.db = await DBConnectionPromise();
-
-        console.log('Initialised', this.db);
-    }
-
-
-}
-
-export default Application;
+injector.get(index);
+injector.get(admin);

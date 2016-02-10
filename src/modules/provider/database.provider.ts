@@ -1,5 +1,6 @@
 'use strict';
 
+import * as Q from 'q';
 import * as mongodb from 'mongodb';
 
 'use strict';

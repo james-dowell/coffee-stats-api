@@ -1,10 +1,8 @@
-"use strict"
-
-import Deps = require('ts-dependency-injection');
+import {Inject} from 'di-ts';
 import * as express from 'express';
 import {Router} from 'express';
 
-import Application from '../../application';
+import Application from '../application';
 
 const DATABASE_USER = 'uvdata';
 const DATABASE_PASSWORD = '6FRrRtzD';
@@ -12,9 +10,7 @@ const DATABASE_HOST = 'dharma.mongohq.com';
 const DATABASE_PORT = '10097';
 const DATABASE_NAME = 'coffeestats_test';
 
-'use strict';
-
-@Deps.Inject(Application)
+@Inject
 export default class StatsModule {
 
     constructor(
@@ -23,9 +19,8 @@ export default class StatsModule {
 
         const router:express.Router = Router();
 
-        router.get('/stats',
+        router.get('/stat',
             (req: express.Request, res: express.Response, next: Function) => {
-                console.log('hello');
                 res.send({});
             }
         );

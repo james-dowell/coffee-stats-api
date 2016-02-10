@@ -11,7 +11,7 @@ var paths = {
 
 var tsProject = ts.createProject({
     typescript: require('typescript'),
-    target: "es6",
+    target: "es5",
     module: require('typescript').ModuleKind.CommonJS,
     emitDecoratorMetadata: true,
     experimentalDecorators: true,
@@ -36,8 +36,7 @@ gulp.task('server:start', ['scripts'], function() {
     // var mode = (args.env && args.env == 'test') ? 'test' : 'dev'
 
     server.listen({
-        path: './.tmp/app.js',
-        execArgv: [ '--harmony' ]
+        path: './.tmp/app.js'
     });
 });
 

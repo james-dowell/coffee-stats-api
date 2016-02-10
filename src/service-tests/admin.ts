@@ -1,7 +1,5 @@
 import * as supertest from 'supertest';
 
-'use strict';
-
 const request = supertest('http://localhost:8083');
 
 describe('Saving new stats', () => {

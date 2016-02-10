@@ -1,20 +1,23 @@
 import * as express from 'express';
 import {Router} from 'express';
+import {Inject} from 'di-ts';
 
 import Application from '../application';
 
-'use strict';
-
-const router:express.Router = Router();
-
+@Inject
 export default class AdminModule {
 
     constructor(
         private application: Application
     ) {
 
-        router.post('stats',
-            (req: express.Request, res: express.Response, next: Function) => { next(); }
+        const router:express.Router = Router();
+
+        router.post('/stat',
+            (req: express.Request, res: express.Response, next: Function) => {
+                console.log('OUCHIE');
+                res.send({});
+            }
         );
 
         application.app.use(router);
