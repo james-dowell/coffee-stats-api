@@ -43,6 +43,12 @@
     },
     "q/Q.d.ts": {
       "commit": "2cad4a3cff770c37b40496188c246b1a60e87e2d"
+    },
+    "sinon/sinon.d.ts": {
+      "commit": "1a5b2a729d35b1d41e2d15818db013a3644c6ba4"
+    },
+    "sinon-chai/sinon-chai.d.ts": {
+      "commit": "1a5b2a729d35b1d41e2d15818db013a3644c6ba4"
     }
   }
 }

@@ -46,7 +46,7 @@ gulp.task( 'server:restart', ['scripts'], function() {
     });
 });
 
-gulp.task('test', function () {
+gulp.task('test', ['scripts'], function () {
     process.chdir('.tmp'); // Tests need to be ran from within the dist directory so require() works
 
     return gulp.src('modules/**/*.spec.js')
@@ -61,7 +61,7 @@ gulp.task('service', function () {
 });
 
 gulp.task('test:auto', ['test'], function () {
-    gulp.watch(['.tmp/modules/**/*.js'], ['test']);
+    gulp.watch(['src/**/*.ts'], ['test']);
 });
 
 gulp.task('watch', ['server:start'], function() {
