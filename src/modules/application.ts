@@ -3,6 +3,7 @@ import * as bodyParser from 'body-parser';
 import * as mongodb from 'mongodb';
 
 import DBConnectionPromise from './provider/database.provider';
+import ErrorMiddleware from './middleware/error.middleware';
 
 function getApplication(): express.Express {
 
@@ -19,21 +20,14 @@ function getApplication(): express.Express {
 export class Application {
 
     public app: express.Application;
-    public db: mongodb.Db;
+    public db: Q.Promise<mongodb.Db>;
+    public logger = console.log;
 
     constructor() {
 
-        DBConnectionPromise().then((connection) => {
-            this.db = connection;
-            console.log('Initialised');
-        });
-
-        this.init();
-
-    }
-
-    private init() {
+        this.db = DBConnectionPromise();
         this.app = getApplication();
+
     }
 
 }

@@ -10,8 +10,22 @@ describe('Saving new stats', () => {
 
         request.post('/stat')
                .send(stat)
-               .expect(200)
+               .expect(201)
                .end(done);
+
+    });
+
+    it('should return a 400 bad request with an error if a submitted stat is not in the correct format', (done) => {
+
+        let stat = { cups: 'banter' };
+
+        request.post('/stat')
+               .send(stat)
+
+               //HACK: typescript definition
+               .expect(<any>400, <any>{
+                   error: 'Invalid coffee stat submission'
+               }, done);
 
     });
 

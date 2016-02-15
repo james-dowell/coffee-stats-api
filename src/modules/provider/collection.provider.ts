@@ -10,8 +10,10 @@ export default class CollectionProvider {
         private application: Application
     ) {}
 
-    public getStatCollection(): mongodb.Collection {
-        return this.application.db.collection('stats');
+    public getStatCollection(): Q.Promise<mongodb.Collection> {
+        return this.application.db.then(
+            (connection) => connection.collection('stats')
+        );
     }
 
 }
