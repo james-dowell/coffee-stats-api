@@ -29,4 +29,15 @@ describe('Saving new stats', () => {
 
     });
 
+    it('should return a 404 if any endpoint does not exist', (done) => {
+
+        let stat = { cups: 2 };
+
+        request.post('/stat-banter')
+               .send(stat)
+               .expect(404)
+               .end(done);
+
+    });
+
 });

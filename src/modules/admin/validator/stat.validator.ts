@@ -1,5 +1,6 @@
 
 import * as cs from '../../../cs-typings/tsd.d';
+import ApiError from '../../middleware/error';
 
 export default class SubmitStatValidator {
 
@@ -14,8 +15,10 @@ export default class SubmitStatValidator {
         const { cups } = req.body;
 
         if (!cups || typeof cups !== 'number') {
-            next(new Error('Invalid coffee stat submission'));
+            next(new ApiError('Invalid coffee stat submission', 400));
         }
+
+        next();
 
     }
 

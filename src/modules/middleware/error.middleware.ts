@@ -11,8 +11,12 @@ export default class ErrorMiddleware {
     }
 
     private middleware(err, req, res, next): void {
-        console.error(err.stack);
-        res.status(500).send('Something broke!');
+
+        const message = {
+            error: err.message || 'Something broke!'
+        }
+
+        res.status(err.code || 500).json(message);
     }
 
 };
